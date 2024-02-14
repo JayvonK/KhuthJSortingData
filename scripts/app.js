@@ -167,5 +167,15 @@ sortEmail.addEventListener('click', async () => {
     await nextCreate(arr, num, count);
 })
 
+sortHeight.addEventListener('click', async () => {
+    let newArr = await getUsers();
+    let heightArr = newArr.sort((height1, height2) => {
+        return height1.Height.split(" ")[0] - height2.Height.split(" ")[0];
+    })
+
+    arr = heightArr;
+    await nextCreate(arr, num, count);
+})
+
 
 export { getUsers, usersDiv1 };
