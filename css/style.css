@@ -5,6 +5,15 @@
     align-items: center;
 }
 
+.around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.pageBtn {
+    width: 10vw;
+}
+
 .divTitle {
     width: 290px;
 }
