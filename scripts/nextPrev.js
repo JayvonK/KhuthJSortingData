@@ -14,17 +14,5 @@ const nextCreate = async (num, count) => {
     }
 }
 
-const backCreate = async (num, count) => {
-    let arr = await getUsers();
-    usersDiv1.innerHTML = "";
 
-    for(let i = num; i > 0; i--){
-        if(count > 0){
-            count--;
-           createRow(arr[count].Id, arr[count].FirstName, arr[count].LastName, arr[count].Email, arr[count].Height, arr[count].Age);
-           console.log("created"); 
-        }
-    }
-}
-
-export  { nextCreate, backCreate}
+export  { nextCreate}
