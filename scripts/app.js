@@ -88,9 +88,6 @@ nextBtn.addEventListener('click', async () => {
         count = -1;
     }
     await nextCreate(arr, num, count);
-
-
-    console.log(count);
 })
 
 backBtn.addEventListener('click', async () => {
@@ -105,7 +102,6 @@ backBtn.addEventListener('click', async () => {
     } else if (num === 40 && count === 19) {
         count = 39;
     }
-    console.log(count);
 })
 
 const compareNumbers = (a, b) => {
@@ -174,6 +170,26 @@ sortHeight.addEventListener('click', async () => {
     })
 
     arr = heightArr;
+    await nextCreate(arr, num, count);
+})
+
+sortId.addEventListener('click', async () => {
+    let newArr = await getUsers();
+    let idArr = newArr.sort((id1, id2) => {
+        return id1.Id - id2.Id;
+    })
+
+    arr = idArr;
+    await nextCreate(arr, num, count);
+})
+
+sortAge.addEventListener('click', async () => {
+    let newArr = await getUsers();
+    let ageArr = newArr.sort((age1, age2) => {
+        return age1.Age - age2.Age;
+    })
+
+    arr = ageArr;
     await nextCreate(arr, num, count);
 })
 
