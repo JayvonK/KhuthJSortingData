@@ -99,8 +99,14 @@ backBtn.addEventListener('click', async () => {
     count -= num;
     if(count < -1){
         count = arr.length - 1 - num;
-    }
+    } 
+    
     await nextCreate(num, count); 
+    if (count === 9){
+        count = 29;
+    } else if (count === 19){
+        count = 39;
+    }
     console.log(count);
 })
 
