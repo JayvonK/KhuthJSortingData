@@ -1,6 +1,5 @@
 import { createRow } from "./createRow.js";
 import { nextCreate } from "./nextPrev.js";
-
 let usersDiv1 = document.getElementById("usersDiv1");
 let btn10 = document.getElementById("btn10");
 let btn20 = document.getElementById("btn20");
@@ -20,8 +19,9 @@ const getUsers = async () => {
     return data.People;
 }
 
+let arr = await getUsers();
+
 const initialCreate = async () => {
-    let arr = await getUsers();
     usersDiv1.innerHTML = "";
     for (let i = 0; i < 10; i++) {
         createRow(arr[i].Id, arr[i].FirstName, arr[i].LastName, arr[i].Email, arr[i].Height, arr[i].Age);
@@ -31,7 +31,6 @@ const initialCreate = async () => {
 initialCreate();
 
 btn10.addEventListener('click', async () => {
-    let arr = await getUsers();
     usersDiv1.innerHTML = "";
     for (let i = 0; i < 10; i++) {
         createRow(arr[i].Id, arr[i].FirstName, arr[i].LastName, arr[i].Email, arr[i].Height, arr[i].Age);
@@ -41,7 +40,6 @@ btn10.addEventListener('click', async () => {
 })
 
 btn20.addEventListener('click', async () => {
-    let arr = await getUsers();
     usersDiv1.innerHTML = "";
     for (let i = 0; i < 20; i++) {
         createRow(arr[i].Id, arr[i].FirstName, arr[i].LastName, arr[i].Email, arr[i].Height, arr[i].Age);
@@ -51,7 +49,6 @@ btn20.addEventListener('click', async () => {
 })
 
 btn30.addEventListener('click', async () => {
-    let arr = await getUsers();
     usersDiv1.innerHTML = "";
     for (let i = 0; i < 30; i++) {
         createRow(arr[i].Id, arr[i].FirstName, arr[i].LastName, arr[i].Email, arr[i].Height, arr[i].Age);
@@ -61,7 +58,6 @@ btn30.addEventListener('click', async () => {
 })
 
 btn40.addEventListener('click', async () => {
-    let arr = await getUsers();
     usersDiv1.innerHTML = "";
     for (let i = 0; i < 40; i++) {
         createRow(arr[i].Id, arr[i].FirstName, arr[i].LastName, arr[i].Email, arr[i].Height, arr[i].Age);
@@ -71,7 +67,6 @@ btn40.addEventListener('click', async () => {
 })
 
 btn50.addEventListener('click', async () => {
-    let arr = await getUsers();
     usersDiv1.innerHTML = "";
     for (let i = 0; i < 50; i++) {
         createRow(arr[i].Id, arr[i].FirstName, arr[i].LastName, arr[i].Email, arr[i].Height, arr[i].Age);
@@ -79,8 +74,6 @@ btn50.addEventListener('click', async () => {
     num = 50;
     count = -1;
 })
-
-
 
 
 nextBtn.addEventListener('click', async () => {
@@ -95,7 +88,6 @@ nextBtn.addEventListener('click', async () => {
 })
 
 backBtn.addEventListener('click', async () => {
-    let arr = await getUsers();
     count -= num;
     if(count < -1){
         count = arr.length - 1 - num;
