@@ -1,8 +1,7 @@
 import { getUsers } from "./app.js";
 import { createRow } from "./createRow.js";
 
-const nextCreate = async (num, count) => {
-    let arr = await getUsers();
+const nextCreate = async (arr, num, count) => {
     usersDiv1.innerHTML = "";
 
     for(let i = 0; i < num; i++){

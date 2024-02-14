@@ -8,6 +8,12 @@ let btn40 = document.getElementById("btn40");
 let btn50 = document.getElementById("btn50");
 let backBtn = document.getElementById("backBtn");
 let nextBtn = document.getElementById("nextBtn");
+let sortId = document.getElementById("sortId");
+let sortFName = document.getElementById("sortFName");
+let sortLName = document.getElementById("sortLName");
+let sortEmail = document.getElementById("sortEmail");
+let sortHeight = document.getElementById("sortHeight");
+let sortAge = document.getElementById("sortAge");
 
 let num = 10;
 let count = -1;
@@ -78,30 +84,62 @@ btn50.addEventListener('click', async () => {
 
 nextBtn.addEventListener('click', async () => {
     count += num;
-    if(count > 98){
+    if (count > 98) {
         count = -1;
     }
-    await nextCreate(num, count);
-    
-    
+    await nextCreate(arr, num, count);
+
+
     console.log(count);
 })
 
 backBtn.addEventListener('click', async () => {
     count -= num;
-    if(count < -1){
+    if (count < -1) {
         count = arr.length - 1 - num;
-    } 
-    
-    await nextCreate(num, count); 
-    if (count === 9){
+    }
+
+    await nextCreate(arr, num, count);
+    if (num === 30 && count === 9) {
         count = 29;
-    } else if (count === 19){
+    } else if (num === 40 && count === 19) {
         count = 39;
     }
     console.log(count);
 })
 
+const compareNumbers = (a, b) => {
+    return a - b;
+}
+
+sortFName.addEventListener('click', async () => {
+    let abcArr = arr.sort((a, b) => {
+        let x = a.FirstName.toLowerCase();
+        let y = b.FirstName.toLowerCase();
+        if (x < y) {
+            return -1;
+        }
+        if (x > y) {
+            return 1;
+        }
+        return 0;
+    })
+    arr = abcArr;
+    await nextCreate(arr, num, count);
+
+})
+
+console.log(arr.sort((a, b) => {
+    let x = a.FirstName.toLowerCase();
+    let y = b.FirstName.toLowerCase();
+    if (x < y) {
+        return -1;
+    }
+    if (x > y) {
+        return 1;
+    }
+    return 0;
+}))
 
 
 export { getUsers, usersDiv1 };
