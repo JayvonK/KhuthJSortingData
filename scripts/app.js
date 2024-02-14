@@ -43,6 +43,11 @@ btn10.addEventListener('click', async () => {
     }
     num = 10;
     count = -1;
+    if (count > -1) {
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
+    }
 })
 
 btn20.addEventListener('click', async () => {
@@ -52,6 +57,11 @@ btn20.addEventListener('click', async () => {
     }
     num = 20;
     count = -1;
+    if (count > -1) {
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
+    }
 })
 
 btn30.addEventListener('click', async () => {
@@ -61,6 +71,11 @@ btn30.addEventListener('click', async () => {
     }
     num = 30;
     count = -1;
+    if (count > -1) {
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
+    }
 })
 
 btn40.addEventListener('click', async () => {
@@ -70,6 +85,11 @@ btn40.addEventListener('click', async () => {
     }
     num = 40;
     count = -1;
+    if (count > -1) {
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
+    }
 })
 
 btn50.addEventListener('click', async () => {
@@ -79,6 +99,11 @@ btn50.addEventListener('click', async () => {
     }
     num = 50;
     count = -1;
+    if (count > -1) {
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
+    }
 })
 
 
@@ -88,19 +113,28 @@ nextBtn.addEventListener('click', async () => {
         count = -1;
     }
     await nextCreate(arr, num, count);
+
+    if (count > -1) {
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
+    }
 })
 
-backBtn.addEventListener('click', async () => {
-    count -= num;
-    if (count < -1) {
-        count = arr.length - 1 - num;
-    }
 
+backBtn.addEventListener('click', async () => {
+    // if (count > -1) {
+
+    // } else {
+    //     alert("You cannot go back");
+    // }
+    count -= num;
     await nextCreate(arr, num, count);
-    if (num === 30 && count === 9) {
-        count = 29;
-    } else if (num === 40 && count === 19) {
-        count = 39;
+
+    if (count > -1) {
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
     }
 })
 
@@ -131,9 +165,9 @@ sortLName.addEventListener('click', async () => {
         let first = lName1.LastName.toUpperCase();
         let second = lName2.LastName.toUpperCase();
 
-        if (first < second){
+        if (first < second) {
             return -1;
-        } else if (first > second){
+        } else if (first > second) {
             return 1;
         } else {
             return 0;
@@ -150,9 +184,9 @@ sortEmail.addEventListener('click', async () => {
         let first = email1.Email.toUpperCase();
         let second = email2.Email.toUpperCase();
 
-        if(first > second){
+        if (first > second) {
             return 1;
-        } else if (first < second){
+        } else if (first < second) {
             return -1;
         } else {
             return 0;
