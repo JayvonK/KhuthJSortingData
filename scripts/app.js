@@ -113,33 +113,59 @@ const compareNumbers = (a, b) => {
 }
 
 sortFName.addEventListener('click', async () => {
-    let abcArr = arr.sort((a, b) => {
-        let x = a.FirstName.toLowerCase();
-        let y = b.FirstName.toLowerCase();
-        if (x < y) {
+    let newArr = await getUsers();
+    let abcArr = newArr.sort((fName1, fName2) => {
+        let first = fName1.FirstName.toUpperCase();
+        let second = fName2.FirstName.toUpperCase();
+        if (first < second) {
             return -1;
-        }
-        if (x > y) {
+        } else if (first > second) {
             return 1;
+        } else {
+            return 0;
         }
-        return 0;
     })
     arr = abcArr;
     await nextCreate(arr, num, count);
-
 })
 
-console.log(arr.sort((a, b) => {
-    let x = a.FirstName.toLowerCase();
-    let y = b.FirstName.toLowerCase();
-    if (x < y) {
-        return -1;
-    }
-    if (x > y) {
-        return 1;
-    }
-    return 0;
-}))
+sortLName.addEventListener('click', async () => {
+    let newArr = await getUsers();
+    let lastArr = newArr.sort((lName1, lName2) => {
+        let first = lName1.LastName.toUpperCase();
+        let second = lName2.LastName.toUpperCase();
+
+        if (first < second){
+            return -1;
+        } else if (first > second){
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+
+    arr = lastArr;
+    await nextCreate(arr, num, count);
+})
+
+sortEmail.addEventListener('click', async () => {
+    let newArr = await getUsers();
+    let emailArr = newArr.sort((email1, email2) => {
+        let first = email1.Email.toUpperCase();
+        let second = email2.Email.toUpperCase();
+
+        if(first > second){
+            return 1;
+        } else if (first < second){
+            return -1;
+        } else {
+            return 0;
+        }
+    })
+
+    arr = emailArr;
+    await nextCreate(arr, num, count);
+})
 
 
 export { getUsers, usersDiv1 };
